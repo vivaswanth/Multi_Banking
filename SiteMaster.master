@@ -43,8 +43,8 @@
                             <li><a runat="server" href="Contact.aspx">Contact</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a runat="server" href="Register.aspx">Register</a></li>
-                            <li><a runat="server" href="ClientLogin.aspx">Log in</a></li>
+                            <li><a runat="server" href="Register.aspx">Sign Up</a></li>
+                            <li><a runat="server" href="ClientLogin.aspx">Sign In</a></li>
                         </ul>
                 </div>
             </div>

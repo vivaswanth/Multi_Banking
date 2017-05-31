@@ -33,23 +33,4 @@ public partial class AdminLogin : System.Web.UI.Page
             Session.RemoveAll();
         }
     }
-
-    protected void ClickBankAdmin_Login(object sender, EventArgs e)
-    {
-    	SqlDataAdapter da = new SqlDataAdapter("select BAUserName,BAPassword from BankAdminProfile where BAUserName='" + BAUserName.Text + "' and BAPassword='"+BAPassword.Text+"'", con);
-        DataTable dt = new DataTable();
-        da.Fill(dt);
-        if (dt.Rows.Count == 0)
-        {
-            result.Text = "InvalidLoginId";
-        }
-        else if(dt.Rows.Count > 0)
-        {
-            Session["name"] = BAUserName.Text;
-            Session["id"] = BAUserName.Text;
-            Response.Redirect("~//BankAdmin//BankAdminIndex.aspx");
-            Session.RemoveAll();
-        }
-    }
-    
 }
