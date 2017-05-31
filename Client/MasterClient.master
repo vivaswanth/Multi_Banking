@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterClient.master.cs" Inherits="Client_MasterClient" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Multi Banking Application</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
+
+</head>
+
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Multi Banking</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a runat="server" href="ClientIndex.aspx">Home</a></li>
+                            <li><a runat="server" href="Dashboard.aspx">DashBoard</a></li>
+                            <li><a runat="server" href="Accounts.aspx">Accounts</a></li>
+                            <li><a runat="server" href="Transactions.aspx">Transactions</a></li>
+                            <li><a runat="server" href="Queries.aspx">Queries</a></li>
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a runat="server"><asp:label ID="user" runat="server"></asp:label></a></li>
+                            <li><a runat="server" href="Logout.aspx">Logout</a></li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+
+<script>
+function openTab(evt, tabName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("taby");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-border-blue w3-text-blue", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-border-blue w3-text-blue";
+}
+</script>
+
+
+
+<script type="text/javascript" src="assets/scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/scripts/jquery.min.js"></script>
+
+</html>
