@@ -17,12 +17,12 @@ public partial class BankAdminLogin : System.Web.UI.Page
     }
     protected void ClickBankAdmin_Login(object sender, EventArgs e)
     {
-    	SqlDataAdapter da = new SqlDataAdapter("select BAUserName,BAPassword from BankAdminProfile where BAUserName='" + BAUserName.Text + "' and BAPassword='"+BAPassword.Text+"'", con);
+    	SqlDataAdapter da = new SqlDataAdapter("select BAUserName,BAPassword from BankAdminProfile where BAUserName='" + BAUserName.Text + "' and BAPassword='"+BAPassword.Text+"' and Status='Approved'", con);
         DataTable dt = new DataTable();
         da.Fill(dt);
         if (dt.Rows.Count == 0)
         {
-            BAresult.Text = "InvalidLoginId";
+            BAresult.Text = "InvalidLoginId / Your application is still under processing, please wait";
         }
         else if(dt.Rows.Count > 0)
         {

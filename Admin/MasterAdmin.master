@@ -17,7 +17,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder id="MainContent" runat="server">
         
         </asp:ContentPlaceHolder>
         <div class="navbar navbar-default navbar-fixed-top">
@@ -33,15 +33,15 @@
                 <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li><a runat="server" href="AdminIndex.aspx">Home</a></li>
-                            <li><a runat="server" href="Dashboard.aspx">DashBoard</a></li>
-                            <li><a runat="server" href="Banks.aspx">Accounts</a></li>
-                            <li><a runat="server" href="Manage.aspx">Transactions</a></li>
-                            <li><a runat="server" href="Queries.aspx">Queries</a></li>
+                            <li><a runat="server" href="AdminDashboard.aspx">DashBoard</a></li>
+                            <li><a runat="server" href="AddBanks.aspx">Banks</a></li>
+                            <li><a runat="server" href="AddManagers.aspx">Managers</a></li>
+                            <li><a runat="server" href="AdminQueries.aspx">Queries</a></li>
 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a runat="server"><asp:label ID="user" runat="server"></asp:label></a></li>
-                            <li><a runat="server" href="Logout.aspx">Logout</a></li>
+                            <li><a runat="server" href="AdminLogout.aspx">Logout</a></li>
                         </ul>
                 </div>
             </div>
@@ -50,4 +50,21 @@
 
     </form>
 </body>
+
+<script>
+function openTab(evt, tabName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("taby");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-border-blue w3-text-blue", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-border-blue w3-text-blue";
+}
+</script>
+
 </html>

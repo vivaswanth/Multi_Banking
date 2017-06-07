@@ -13,10 +13,10 @@
                 <div class="carousel-caption" role="option">
                     <p>
                         Are you an Authorized Bank manager ?? Login here...
-                        <a class="btn btn-default" href="AdminLogin.aspx">
+                        <a class="btn btn-default" href="BankAdminLogin.aspx">
                             Login Here
                         </a>
-                        </a>
+                        
                     </p>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="carousel-caption" role="option">
                     <p>
                         Are you an Authorized Bank manager ?? Login here...
-                        <a class="btn btn-default" href="AdminLogin.aspx">
+                        <a class="btn btn-default" href="BankAdminLogin.aspx">
                             Learn More
                         </a>
                     </p>
