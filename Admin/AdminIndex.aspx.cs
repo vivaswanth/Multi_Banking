@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows;
 using System.Web.Security;
-
+using System.Text.RegularExpressions;
 
 public partial class Admin_AdminIndex : System.Web.UI.Page
 {
@@ -19,12 +19,39 @@ public partial class Admin_AdminIndex : System.Web.UI.Page
     	{
     		con.Open();
     		name.Text = Session["name"].ToString();
+            DisplayRecord();
     	}
     	else
     	{
     		Session.Clear();
     		Response.Redirect("~//Default.aspx");
     	}
-    	
+    }
+
+    protected void Search(object sender, EventArgs e)
+    {
+        this.DisplayRecord();
+    }
+
+    public DataTable DisplayRecord()  
+    {  
+        SqlDataAdapter Adp1 = new SqlDataAdapter("Select * from ClientProfile where UserName like '%"+txtSearch.Text+"%' or FirstName like '%"+txtSearch.Text+"%'", con);  
+        DataTable Dt1 = new DataTable();  
+        Adp1.Fill(Dt1);
+        grid1.DataSource = Dt1;  
+        grid1.DataBind();  
+        return Dt1;  
+    }
+
+    protected void ViewClick_Redirect(object sender, EventArgs e)
+    {
+        string Id = (sender as LinkButton).CommandArgument;
+        Response.Redirect("ViewClientDetails.aspx?Id=" + Id);
+    } 
+
+    protected void OnPaging(object sender, GridViewPageEventArgs e)
+    {
+        grid1.PageIndex = e.NewPageIndex;
+        grid1.DataBind();
     }
 }

@@ -26,6 +26,29 @@
 
 	</div>
 
+	<div class="container jumbotron w3-card-2 w3-padding" style="margin-top: 2%">
+		<table class="w3-table w3-padding">
+			<tr>
+				<th>Bank Admin ID</th>
+				<th>Bank Name</th>
+				<th>Bank Branch</th>
+				<th>Bank IFSC Code</th>
+				<th>Bank Admin Role</th>
+				<th>Bank Status</th>
+			</tr>
+			<tr>
+				<td><asp:label runat="server" ID="BAID2"></asp:label></td>
+				<td><asp:label runat="server" ID="BABankName"></asp:label></td>
+				<td><asp:label runat="server" ID="BABankBranch"></asp:label></td>
+				<td><asp:label runat="server" ID="BABankIFSC"></asp:label></td>
+				<td><asp:label runat="server" ID="BARole"></asp:label></td>
+				<td><asp:label runat="server" ID="BAStatus"></asp:label></td>
+			</tr>
+		</table>
+
+	</div>
+
+
 	<div class="btn-group btn-group-justified w3-center">
 		<asp:Button runat="server" style="width: 200px" class="btn btn-success" OnClick="Approve_BankManager" Text="Approve" />
 		<asp:Button runat="server" style="width: 200px" class="btn btn-danger" OnClick="Decline_BankManager" Text="Decline" />

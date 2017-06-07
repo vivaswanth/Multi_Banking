@@ -13,6 +13,10 @@
     <link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/w3.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
+
+    <script src="Assets/Scripts/jquery.min.js"></script>
+    <script src="Assets/js/bootstrap.js"></script>
+    <script src="Assets/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">

@@ -18,33 +18,49 @@ public partial class Admin_ManagerDetails : System.Web.UI.Page
 
     	con.Open();
     	string id= Request.QueryString["id"];
-    	SqlCommand cmd = new SqlCommand("select * from BankAdminProfile where BAUserName = '"+id+"'", con);
-
-    	using(SqlDataReader reader = cmd.ExecuteReader())
+    	SqlCommand cmd1 = new SqlCommand("select * from BankAdminProfile where BAUserName = '"+id+"'", con);
+    	SqlCommand cmd2 = new SqlCommand("select * from BankAdminProfile a INNER JOIN BankAdminBankDetails b on a.BAUserName = '"+id+"' and a.BAID = b.BAID", con);
+    	using(SqlDataReader reader1 = cmd1.ExecuteReader())
      	{
-       		if(reader.Read())
+       		if(reader1.Read())
        		{          
-	         	BAUserName.Text = reader.GetString(0);
-	         	BAName.Text = reader.GetString(1);
-	         	BAAadhaar.Text = reader.GetString(2);
-	         	BAEmail.Text = reader.GetString(3);
-	         	BAMobileNum.Text = reader.GetDecimal(5).ToString();
-	         	BAID.Text = reader.GetString(6);
-	         	Status.Text = reader.GetString(7);
+	         	BAUserName.Text = reader1.GetString(0);
+	         	BAName.Text = reader1.GetString(1);
+	         	BAAadhaar.Text = reader1.GetString(2);
+	         	BAEmail.Text = reader1.GetString(3);
+	         	BAMobileNum.Text = reader1.GetDecimal(5).ToString();
+	         	BAID.Text = reader1.GetString(6);
+	         	Status.Text = reader1.GetString(7);
+       		}
+     	}
+     	using(SqlDataReader reader2 = cmd2.ExecuteReader())
+     	{
+       		if(reader2.Read())
+       		{          
+	         	BAID2.Text = reader2.GetString(8);
+	         	BABankName.Text = reader2.GetString(9);
+	         	BABankBranch.Text = reader2.GetString(10);
+	         	BABankIFSC.Text = reader2.GetString(11);
+	         	BARole.Text = reader2.GetString(12);
+	   			BAStatus.Text = reader2.GetString(13);
        		}
      	}
     }
 
     protected void Approve_BankManager(object sender, EventArgs e)
     {
-    	SqlCommand cmd = new SqlCommand("UPDATE BankAdminProfile set Status = 'Approved' where BAUserName='"+BAUserName.Text +"'", con);
-    	cmd.ExecuteNonQuery().ToString();
+    	SqlCommand cmd1 = new SqlCommand("UPDATE BankAdminProfile set Status = 'Approved' where BAUserName='"+BAUserName.Text +"'", con);
+    	SqlCommand cmd2 = new SqlCommand("UPDATE BankAdminBankDetails set BAStatus = 'Approved' where BAID='"+BAID.Text +"'", con);
+    	cmd1.ExecuteNonQuery().ToString();
+    	cmd2.ExecuteNonQuery().ToString();
     }
 
     protected void Decline_BankManager(object sender, EventArgs e)
     {
-    	SqlCommand cmd = new SqlCommand("UPDATE BankAdminProfile set Status = 'Failed' where BAUserName='"+BAUserName.Text +"'", con);
-    	cmd.ExecuteNonQuery().ToString();
+    	SqlCommand cmd1 = new SqlCommand("UPDATE BankAdminProfile set Status = 'Failed' where BAUserName='"+BAUserName.Text +"'", con);
+    	SqlCommand cmd2 = new SqlCommand("UPDATE BankAdminBankDetails set BAStatus = 'Failed' where BAID='"+BAID.Text +"'", con);
+    	cmd1.ExecuteNonQuery().ToString();
+    	cmd2.ExecuteNonQuery().ToString();
     }
 
 }
