@@ -2,33 +2,30 @@
 
 <asp:content id="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<div class="well well-sm" style="margin-top: 4%">
-	<h2>Welcome <asp:label runat="server" ID="name"></asp:label> </h2>
-</div>
-
-<div class="w3-container">
-  <h2>Manage Your Accounts</h2>
-
-  <div class="w3-row">
+<div class="w3-row w3-padding w3-white w3-card-2 navbar-fixed-top" style="margin-top: 4%">
+  <div class="col-md-10">
+    <div class="w3-row">
     <a href="javascript:void(0)" onclick="openTab(event, '1');">
-      <div class="w3-third tablink w3-bottombar w3-border-blue w3-text-blue w3-hover-light-grey w3-padding">Current Accounts</div>
+      <div class="w3-quarter tablink w3-bottombar w3-border-blue w3-text-blue w3-padding">Add / Attach Accounts</div>
     </a>
     <a href="javascript:void(0)" onclick="openTab(event, '2');">
-      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Add Accounts</div>
+      <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Your Current Accounts</div>
     </a>
     <a href="javascript:void(0)" onclick="openTab(event, '3');">
-      <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Manage Accounts</div>
+      <div class="w3-quarter tablink w3-bottombar w3-hover-light-grey w3-padding">Manage Accounts</div>
     </a>
   </div>
 
-  <div id="1" class="w3-container taby">
-    <h2>Your Current Accounts Information & Details Here...</h2><br>
-    
-    
   </div>
+  <div class="col-md-2 w3-right">
+      <a href="Notifications.aspx"><span class="fa fa-bell" style="font-size:24px; padding-right: 20px ; margin-top: 5%"></span></a>
+      <a href="Settings.aspx"><span class="fa fa-cog" style="font-size:24px; margin-top: 5%"></span></a>
+  </div>
+</div>
 
-  <div id="2" class="w3-container taby" style="display:none">
-  	<br>
+<div class="w3-container" style="margin-top: 10%">
+
+  <div id="1" class="w3-container taby">
     <h2>Add New Accounts</h2>
     <p>Please Fill the Bank Details and Your Account Details</p>
 
@@ -36,9 +33,7 @@
     
     <p class="w3-red w3-padding">Please fill these fields correctly, enter your account number and branch IFSC code correctly, Check twice before you submit the details.</p>
 
-    <div class="row w3-padding well">
-
-    	
+    <div class="w3-row well">
     	<table class="w3-table">
 
     		<tr>
@@ -49,27 +44,31 @@
     		<tr>
     			<td>
                     <div class="col-md-8">
-                        <asp:TextBox runat="server" ID="BankName" CssClass="form-control" />
+                        <asp:DropDownList runat="server" ID="BankName" CssClass="form-control" AutoPostBack = "true" OnSelectedIndexChanged="BankName_SelectedIndexChanged"/>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="BankName"
                         CssClass="text-danger" ErrorMessage="The user name field is required." />
                     </div>
     			</td>
     			<td>
     				<div class="col-md-8">
-                        <asp:TextBox runat="server" ID="BankBranch" CssClass="form-control" />
+                        <asp:DropDownList runat="server" ID="BankBranch" CssClass="form-control" 
+                        AutoPostBack = "true" Enabled = "false" OnSelectedIndexChanged="BankBranch_SelectedIndexChanged"/>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="BankBranch"
                         CssClass="text-danger" ErrorMessage="The user name field is required." />
                     </div>
     			</td>
     			<td>
     				<div class="col-md-8">
-                        <asp:TextBox runat="server" ID="BankIFSC" CssClass="form-control" />
+                        <asp:DropDownList runat="server" ID="BankIFSC" CssClass="form-control" 
+                        AutoPostBack = "true" Enabled = "false" OnSelectedIndexChanged="BankIFSC_SelectedIndexChanged"/>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="BankIFSC"
                         CssClass="text-danger" ErrorMessage="The user name field is required." />
                     </div>
     			</td>
     		</tr>
     	</table>
+
+        <asp:Label ID="Results" runat="server" Text="" Font-Names = "Arial" />
 
     	<table class="w3-table">
 
@@ -109,6 +108,11 @@
         <asp:label ID="result" runat="server" Text="result"></asp:label>
 
     </div>
+    
+  </div>
+
+  <div id="2" class="w3-container taby" style="display:none">
+    <h2>Your Current Accounts Information & Details Here...</h2><br>
     
   </div>
 

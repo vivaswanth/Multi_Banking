@@ -18,7 +18,6 @@ public partial class Client_ClientIndex : System.Web.UI.Page
     	if(Session["name"] != null)
     	{
     		con.Open();
-    		name.Text = Session["name"].ToString();
     	}
     	else
     	{

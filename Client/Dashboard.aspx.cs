@@ -17,7 +17,7 @@ public partial class Client_Dashboard : System.Web.UI.Page
     {
     	con.Open();
 
-    	SqlCommand cmd = new SqlCommand("select * from ClientProfile", con);
+    	SqlCommand cmd = new SqlCommand("select * from ClientProfile where UserName = '"+ Session["name"]+"'", con);
 
     	using(SqlDataReader reader = cmd.ExecuteReader())
      	{

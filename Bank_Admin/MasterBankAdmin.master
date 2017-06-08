@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/w3.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="Assets/Scripts/jquery.min.js"></script>
     <script src="Assets/js/bootstrap.js"></script>
@@ -54,4 +55,22 @@
     </div>
     </form>
 </body>
+
+<script>
+function openTab(evt, tabName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("taby");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-border-blue w3-text-blue", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-border-blue w3-text-blue";
+}
+</script>
+
+
 </html>

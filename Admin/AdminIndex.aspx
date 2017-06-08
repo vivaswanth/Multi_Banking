@@ -21,7 +21,7 @@
 	<hr>
 
 	<div class="w3-row well">
-		<asp:TextBox ID="txtSearch" class="w3-input w3-third" placeholder="Search here for username" runat="server" /><span class="fa fa-search"></span>
+		<asp:TextBox ID="txtSearch" class="w3-input w3-third" placeholder="Search here for username" runat="server" />
 		<asp:Button Text="Search" runat="server" class="w3-btn w3-blue" OnClick="Search"></asp:Button>
 	</div>
     
