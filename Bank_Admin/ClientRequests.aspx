@@ -84,7 +84,7 @@
          </asp:TemplateField>
          <asp:TemplateField HeaderText="View Details">  
              <ItemTemplate>  
-                 <asp:LinkButton runat="server" class="btn btn-success btn-sm" OnClick="ViewClick_Redirect" Text="View Details" CommandArgument='<%#Eval("UserName")%>'/>
+                 <asp:LinkButton runat="server" class="btn btn-success btn-sm" OnClick="ViewClick_Redirect" Text="View Details" CommandArgument='<%#Eval("AccountNum")%>'/>
              </ItemTemplate>  
          </asp:TemplateField>  
      </columns>  

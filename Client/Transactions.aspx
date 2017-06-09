@@ -50,31 +50,49 @@
                 </div>
             </div>
             <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="TUserName" CssClass="col-md-3 control-label">Enter Destination User Name</asp:Label>
+                <div class="col-md-8">
+                    <asp:TextBox runat="server" ID="TUserName" CssClass="form-control" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="TUserName"
+                    CssClass="text-danger" ErrorMessage="This field is required." />
+                </div>
+            </div>
+            <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Amount" CssClass="col-md-3 control-label">Enter Amount to be Transferred</asp:Label>
                 <div class="col-md-8">
-                    <asp:TextBox runat="server" ID="Amount" CssClass="form-control" />
+                    <asp:TextBox runat="server" ID="Amount" TextMode="Number" CssClass="form-control" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Amount"
+                    CssClass="text-danger" ErrorMessage="This field is required." />
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="Remarks" CssClass="col-md-3 control-label">Remarks If Any</asp:Label>
+                <div class="col-md-8">
+                    <asp:TextBox runat="server" ID="Remarks" CssClass="form-control" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Remarks"
                     CssClass="text-danger" ErrorMessage="This field is required." />
                 </div>
             </div>
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="TPassword" CssClass="col-md-3 control-label">Enter High Security Transaction Password</asp:Label>
                 <div class="col-md-8">
-                    <asp:TextBox runat="server" ID="TPassword" CssClass="form-control" />
+                    <asp:TextBox runat="server" ID="TPassword" TextMode="Password"  CssClass="form-control" />
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="TPassword"
                     CssClass="text-danger" ErrorMessage="The user name field is required." />
                 </div>
             </div>
             <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server"  Text="Make Transfer" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="MakeTransfer" Text="Make Transfer" CssClass="btn btn-default" />
             </div>
         </div>
+        <asp:label runat="server" ID="result" Text="please enter valid account numbers" />
   		</div>
   	</div>
   </div>
 
   <div id="2" class="w3-container taby">
+    
   </div>
 
   <div id="3" class="w3-container taby">

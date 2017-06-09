@@ -9,14 +9,16 @@
     <title><%: Page.Title %> - Multi Banking Application</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-
+    
     <link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/w3.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script src="Assets/Scripts/jquery.min.js"></script>
-    <script src="Assets/js/bootstrap.js"></script>
     <script src="Assets/js/bootstrap.min.js"></script>
 
 </head>
@@ -41,9 +43,18 @@
                         <ul class="nav navbar-nav">
                             <li><a runat="server" href="ClientIndex.aspx">Home</a></li>
                             <li><a runat="server" href="Dashboard.aspx">DashBoard</a></li>
-                            <li><a runat="server" href="Accounts.aspx">Accounts</a></li>
+                            <li class="dropdown">
+                              <a runat="server" class="dropdown-toggle" data-toggle="dropdown" href="#">Accounts
+                              <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a runat="server" href="Accounts.aspx">My Accounts</a></li>
+                                <li><a runat="server" href="ClientAttachAccounts.aspx">Attach Accounts</a></li>
+                              </ul>
+                            </li>
+                            <li><a runat="server" href="Transactions.aspx">Payments</a></li>
                             <li><a runat="server" href="Transactions.aspx">Transactions</a></li>
                             <li><a runat="server" href="Queries.aspx">Queries</a></li>
+                            <li><a runat="server" href="Queries.aspx">Loans</a></li>
 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
@@ -71,11 +82,7 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.firstElementChild.className += " w3-border-blue w3-text-blue";
 }
+
 </script>
-
-
-
-<script type="text/javascript" src="assets/scripts/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/scripts/jquery.min.js"></script>
 
 </html>

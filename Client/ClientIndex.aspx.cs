@@ -18,6 +18,8 @@ public partial class Client_ClientIndex : System.Web.UI.Page
     	if(Session["name"] != null)
     	{
     		con.Open();
+            DisplayRecord1();
+            DisplayRecord2();
     	}
     	else
     	{
@@ -26,4 +28,36 @@ public partial class Client_ClientIndex : System.Web.UI.Page
     	}
     	
     }
+    protected void Search(object sender, EventArgs e)
+    {
+        this.DisplayRecord1();
+    }
+
+    public DataTable DisplayRecord1()  
+    {  
+        SqlDataAdapter Adp1 = new SqlDataAdapter("Select * from ClientBankDetails where UserName='%"+Session["name"]+"%' or AccountNum like '%"+txtSearch.Text+"%'", con);  
+        DataTable Dt1 = new DataTable();  
+        Adp1.Fill(Dt1);
+        grid1.DataSource = Dt1;  
+        grid1.DataBind();  
+        return Dt1;  
+    }
+
+    protected void OnPaging(object sender, GridViewPageEventArgs e)
+    {
+        grid1.PageIndex = e.NewPageIndex;
+        grid1.DataBind();
+    }
+
+    public DataTable DisplayRecord2()  
+    {  
+        SqlDataAdapter Adp2 = new SqlDataAdapter("Select * from ClientTransactions where UserName='%"+Session["name"]+"%'", con);  
+        DataTable Dt2 = new DataTable();  
+        Adp2.Fill(Dt2);
+        grid2.DataSource = Dt2;  
+        grid2.DataBind();  
+        return Dt2;  
+    }
+
+
 }

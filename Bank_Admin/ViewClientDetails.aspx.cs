@@ -17,27 +17,15 @@ public partial class Bank_Admin_ViewClientDetails : System.Web.UI.Page
     {
     	con.Open();
     	string id= Request.QueryString["id"];
-    	SqlCommand cmd1 = new SqlCommand("select * from ClientProfile where UserName = '"+id+"'", con);
-    	SqlCommand cmd2 = new SqlCommand("select * from ClientBankDetails where UserName = '"+id+"'", con);
-    	using(SqlDataReader reader1 = cmd1.ExecuteReader())
-     	{
-       		if(reader1.Read())
-       		{          
-	         	FirstName.Text = reader1.GetString(0);
-	         	LastName.Text = reader1.GetString(1);
-	         	UserName.Text = reader1.GetString(2);
-	         	FatherName.Text = reader1.GetString(3);
-	         	MobileNum.Text = reader1.GetDecimal(4).ToString();
-	         	Email.Text = reader1.GetString(5);
-	         	Aadhaar.Text = reader1.GetString(6);
-	         	Address.Text = reader1.GetString(8);
-       		}
-     	}
-     	using(SqlDataReader reader2 = cmd2.ExecuteReader())
+    	string name = null;
+    	
+    	SqlCommand cmd2 = new SqlCommand("select * from ClientBankDetails where AccountNum = '"+id+"'", con);
+    	using(SqlDataReader reader2 = cmd2.ExecuteReader())
      	{
        		if(reader2.Read())
        		{          
 	         	UserName2.Text = reader2.GetString(0);
+	         	name = reader2.GetString(0);
 	         	BankName.Text = reader2.GetString(1);
 	         	BankBranch.Text = reader2.GetString(2);
 	         	BankIFSC.Text = reader2.GetString(3);
@@ -55,12 +43,28 @@ public partial class Bank_Admin_ViewClientDetails : System.Web.UI.Page
 	         	}
        		}
      	}
+     	SqlCommand cmd1 = new SqlCommand("select * from ClientProfile where UserName = '"+name+"'", con);
+    	using(SqlDataReader reader1 = cmd1.ExecuteReader())
+     	{
+       		if(reader1.Read())
+       		{          
+	         	FirstName.Text = reader1.GetString(0);
+	         	LastName.Text = reader1.GetString(1);
+	         	UserName.Text = reader1.GetString(2);
+	         	FatherName.Text = reader1.GetString(3);
+	         	MobileNum.Text = reader1.GetDecimal(4).ToString();
+	         	Email.Text = reader1.GetString(5);
+	         	Aadhaar.Text = reader1.GetString(6);
+	         	Address.Text = reader1.GetString(8);
+       		}
+     	}
+     	
     }
 
     protected void Approve_ClientAccount(object sender, EventArgs e)
     {
     	string val = Balance_Amount.Text;
-    	SqlCommand cmd = new SqlCommand("UPDATE ClientBankDetails set Status = 'Approved', Balance='"+val+"' where UserName='"+UserName.Text +"'", con);
+    	SqlCommand cmd = new SqlCommand("UPDATE ClientBankDetails set Status = 'Approved', Balance='"+val+"' where UserName='"+UserName.Text +"' and AccountNum = '"+AccountNum.Text+"'", con);
     	cmd.ExecuteNonQuery().ToString();
     }
 

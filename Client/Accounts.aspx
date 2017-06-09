@@ -112,7 +112,64 @@
   </div>
 
   <div id="2" class="w3-container taby" style="display:none">
-    <h2>Your Current Accounts Information & Details Here...</h2><br>
+    <h2>Your Current Accounts Information & Details Here...</h2>
+    <hr>
+    <div class="w3-row well">
+        <asp:TextBox ID="txtSearch" class="w3-input w3-third" placeholder="Search here for username" runat="server" />
+        <asp:Button Text="Search" runat="server" class="w3-btn w3-blue" OnClick="Search"></asp:Button>
+    </div>
+    
+  <asp:GridView ID="grid1" runat="server" AutoGenerateColumns="False" CellPadding="14" class="w3-table w3-padding" AllowPaging="true" OnPageIndexChanging="OnPaging" PageSize="10"> 
+    <AlternatingRowStyle BackColor="White" />  
+     <columns>  
+         <asp:TemplateField HeaderText="User Name">  
+             <ItemTemplate>  
+                 <asp:Label ID="UserName" runat="server" Text='<%#Bind("UserName") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Bank Name">  
+             <ItemTemplate>  
+                 <asp:Label ID="BankName" runat="server" Text='<%#Bind("BankName") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Bank Branch">  
+             <ItemTemplate>  
+                 <asp:Label ID="BankBranch" runat="server" Text='<%#Bind("BankBranch") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Bank IFSC Code">  
+             <ItemTemplate>  
+                 <asp:Label ID="BankIFSC" runat="server" Text='<%#Bind("BankIFSC") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Account Number">  
+             <ItemTemplate>  
+                 <asp:Label ID="AccountNum" runat="server" Text='<%#Bind("AccountNum") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+         <asp:TemplateField HeaderText="Account Type">  
+             <ItemTemplate>  
+                 <asp:Label ID="AccountType" runat="server" Text='<%#Bind("AccountType") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+         <asp:TemplateField HeaderText="Name of the Account Holder">  
+             <ItemTemplate>  
+                 <asp:Label ID="NameOfAccHolder" runat="server" Text='<%#Bind("NameOfAccHolder") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+         <asp:TemplateField HeaderText="Status">  
+             <ItemTemplate>  
+                 <asp:Label ID="Status" runat="server" Text='<%#Bind("Status") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+         <asp:TemplateField HeaderText="Current Balance">  
+             <ItemTemplate>  
+                 <asp:Label ID="Balance" runat="server" Text='<%#Bind("Balance") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+     </columns>  
+
+  </asp:GridView>
     
   </div>
 

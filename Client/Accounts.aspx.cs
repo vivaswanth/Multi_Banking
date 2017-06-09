@@ -17,6 +17,7 @@ public partial class Client_Accounts : System.Web.UI.Page
         if(!IsPostBack)
         {
             con.Open();
+            DisplayRecord();
             SqlCommand cmd = new SqlCommand("select * from BankAdminBankDetails where BAStatus = 'Approved'", con);
             using (SqlDataReader dr = cmd.ExecuteReader())
             {
@@ -31,6 +32,28 @@ public partial class Client_Accounts : System.Web.UI.Page
             }
         }
     }
+
+    protected void Search(object sender, EventArgs e)
+    {
+        this.DisplayRecord();
+    }
+
+    public DataTable DisplayRecord()  
+    {  
+        SqlDataAdapter Adp1 = new SqlDataAdapter("Select * from ClientBankDetails where UserName='%"+Session["name"]+"%' or AccountNum like '%"+txtSearch.Text+"%'", con);  
+        DataTable Dt1 = new DataTable();  
+        Adp1.Fill(Dt1);
+        grid1.DataSource = Dt1;  
+        grid1.DataBind();  
+        return Dt1;  
+    }
+
+    protected void OnPaging(object sender, GridViewPageEventArgs e)
+    {
+        grid1.PageIndex = e.NewPageIndex;
+        grid1.DataBind();
+    }
+
 
     protected void BankName_SelectedIndexChanged(object sender, EventArgs e)
     {
