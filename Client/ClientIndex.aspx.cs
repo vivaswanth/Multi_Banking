@@ -51,7 +51,7 @@ public partial class Client_ClientIndex : System.Web.UI.Page
 
     public DataTable DisplayRecord2()  
     {  
-        SqlDataAdapter Adp2 = new SqlDataAdapter("Select * from ClientTransactions where UserName='%"+Session["name"]+"%'", con);  
+        SqlDataAdapter Adp2 = new SqlDataAdapter("Select * from ClientTransactions where UserName='"+Session["name"]+"'", con);  
         DataTable Dt2 = new DataTable();  
         Adp2.Fill(Dt2);
         grid2.DataSource = Dt2;  

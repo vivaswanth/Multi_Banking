@@ -98,7 +98,7 @@
     <h2>Recent Transactions</h2>
     <hr>
     
-  <asp:GridView ID="grid2" runat="server" AutoGenerateColumns="False" CellPadding="14" class="w3-table w3-padding" AllowPaging="true" OnPageIndexChanging="OnPaging" PageSize="10"> 
+  <asp:GridView ID="grid2" runat="server" AutoGenerateColumns="False" CellPadding="14" class="w3-table w3-padding"> 
     <AlternatingRowStyle BackColor="White" />  
      <columns>  
          <asp:TemplateField HeaderText="User Name">  

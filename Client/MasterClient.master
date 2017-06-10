@@ -54,7 +54,6 @@
                             <li><a runat="server" href="Transactions.aspx">Payments</a></li>
                             <li><a runat="server" href="Transactions.aspx">Transactions</a></li>
                             <li><a runat="server" href="Queries.aspx">Queries</a></li>
-                            <li><a runat="server" href="Queries.aspx">Loans</a></li>
 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">

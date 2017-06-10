@@ -70,7 +70,7 @@ CodeFile="ClientAttachAccounts.aspx.cs" Inherits="Client_ClientAttachAccounts" %
   	</div>
   </div>
 
-  <div id="2" class="w3-container taby">
+  <div id="2" class="w3-container taby" style="display:none">
   		<h3>Showing the list of all the Attached Accounts</h3>
 	<hr>
 
