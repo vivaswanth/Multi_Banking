@@ -17,6 +17,8 @@ public partial class Client_Transactions : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
     	con.Open();
+      DisplayRecord2();
+      DisplayRecord3();
     }
 
     protected void MakeTransfer(object sender, EventArgs e)
@@ -55,4 +57,25 @@ public partial class Client_Transactions : System.Web.UI.Page
        		}
         }
     }
+
+    public DataTable DisplayRecord2()  
+    {  
+        SqlDataAdapter Adp2 = new SqlDataAdapter("Select * from ClientTransactions where UserName='"+Session["name"]+"'", con);  
+        DataTable Dt2 = new DataTable();  
+        Adp2.Fill(Dt2);
+        grid2.DataSource = Dt2;  
+        grid2.DataBind();  
+        return Dt2;  
+    }
+
+    public DataTable DisplayRecord3()  
+    {  
+        SqlDataAdapter Adp3 = new SqlDataAdapter("Select * from ClientTransactions where UserName='"+Session["name"]+"'", con);  
+        DataTable Dt3 = new DataTable();  
+        Adp3.Fill(Dt3);
+        grid3.DataSource = Dt3;  
+        grid3.DataBind();  
+        return Dt3;  
+    }
+
 }

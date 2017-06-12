@@ -35,4 +35,9 @@ public partial class ClientLogin : System.Web.UI.Page
             Session.RemoveAll();
         }
     }
+
+    public void Register(object sender, EventArgs e)
+    {
+        Response.Redirect("Register.aspx");
+    }
 }

@@ -1,35 +1,42 @@
 ﻿<%@ Page Title="ClientLogin" Language="C#" AutoEventWireup="true" MasterPageFile="~/SiteMaster.Master" CodeFile="ClientLogin.aspx.cs" Inherits="ClientLogin" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-<div class="container well login">
-	
-    <h2><%: Title %>. Here...</h2>
+<div class="w3-border" style="background: url(Assets/images/b7.jpg);">
+<div class="register container well" >
+    <h2><%: Title %> Here...</h2>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-5 w3-margin-left">
             <section id="loginForm">
                 <div class="form-horizontal">
-                    <h4>Use a local account to log in.</h4>
-                    <hr />
+                    <p>Use your local account to log in.<br> Note that username and password are case sensitive.<br>By signing in, you agree to our terms and conditions.</p>
+                    <hr style="width: 360px">
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
                             <asp:Literal runat="server" ID="FailureText" />
                         </p>
                     </asp:PlaceHolder>
                     <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-2 control-label">User name</asp:Label>
-                        <div class="col-md-6">
-                            <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />
+                        <div class="col-md-10">
+                            <asp:TextBox runat="server" ClientID="UserName" ID="UserName" CssClass="form-control" Placeholder="Enter Username"/>
+
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
                                 CssClass="text-danger" ErrorMessage="The user name field is required." />
                         </div>
                     </div>
                     <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
-                        <div class="col-md-6">
-                            <asp:TextBox ClientID="Password" runat="server" ID="Password" TextMode="Password" CssClass="form-control"/>
+                        <div class="col-md-10">
+                            <asp:TextBox runat="server" ClientID="Password" ID="Password" TextMode="Password" CssClass="form-control" Placeholder="Enter Password"/>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
                         </div>
+                    </div>
+                    <div class="w3-row col-md-10">
+                    <div class="form-group w3-half" style="margin-right: 30px">
+                            <asp:Button runat="server" OnClick="login" Text="LOG IN" CssClass="btn btn-success btn-block" />
+                    </div>
+                    <div class="form-group w3-half">                        
+                            <a href="Register.aspx" class="btn w3-blue btn-block"><i class="fa fa-github fa-fw"></i> <span class="network-name">Register Here</span></a>
+                    </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
@@ -39,80 +46,53 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" OnClick="login" Text="Log in" CssClass="btn btn-default" />
-                        </div>
-                    </div>
+                    
                 </div>
                 <asp:label runat="server" ID="result"></asp:label>
-                <p>
-                    <a href="Register.aspx">Register Here</a>
-                    if you don't have a local account.
-                </p>
+                <br><br>
             </section>
         </div>
 
-        <div class="col-md-4">
-            <div id="container">
-    <ul id="keyboard">
-        <li class="symbol"><span class="off">`</span><span class="on">~</span></li>
-        <li class="symbol"><span class="off">1</span><span class="on">!</span></li>
-        <li class="symbol"><span class="off">2</span><span class="on">@</span></li>
-        <li class="symbol"><span class="off">3</span><span class="on">#</span></li>
-        <li class="symbol"><span class="off">4</span><span class="on">$</span></li>
-        <li class="symbol"><span class="off">5</span><span class="on">%</span></li>
-        <li class="symbol"><span class="off">6</span><span class="on">^</span></li>
-        <li class="symbol"><span class="off">7</span><span class="on">&amp;</span></li>
-        <li class="symbol"><span class="off">8</span><span class="on">*</span></li>
-        <li class="symbol"><span class="off">9</span><span class="on">(</span></li>
-        <li class="symbol"><span class="off">0</span><span class="on">)</span></li>
-        <li class="symbol"><span class="off">-</span><span class="on">_</span></li>
-        <li class="symbol"><span class="off">=</span><span class="on">+</span></li>
-        <li class="delete lastitem">delete</li>
-        <li class="tab">tab</li>
-        <li class="letter">q</li>
-        <li class="letter">w</li>
-        <li class="letter">e</li>
-        <li class="letter">r</li>
-        <li class="letter">t</li>
-        <li class="letter">y</li>
-        <li class="letter">u</li>
-        <li class="letter">i</li>
-        <li class="letter">o</li>
-        <li class="letter">p</li>
-        <li class="symbol"><span class="off">[</span><span class="on">{</span></li>
-        <li class="symbol"><span class="off">]</span><span class="on">}</span></li>
-        <li class="symbol lastitem"><span class="off">\</span><span class="on">|</span></li>
-        <li class="capslock">caps lock</li>
-        <li class="letter">a</li>
-        <li class="letter">s</li>
-        <li class="letter">d</li>
-        <li class="letter">f</li>
-        <li class="letter">g</li>
-        <li class="letter">h</li>
-        <li class="letter">j</li>
-        <li class="letter">k</li>
-        <li class="letter">l</li>
-        <li class="symbol"><span class="off">;</span><span class="on">:</span></li>
-        <li class="symbol"><span class="off">'</span><span class="on">&quot;</span></li>
-        <li class="return lastitem">return</li>
-        <li class="left-shift">shift</li>
-        <li class="letter">z</li>
-        <li class="letter">x</li>
-        <li class="letter">c</li>
-        <li class="letter">v</li>
-        <li class="letter">b</li>
-        <li class="letter">n</li>
-        <li class="letter">m</li>
-        <li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>
-        <li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>
-        <li class="symbol"><span class="off">/</span><span class="on">?</span></li>
-        <li class="right-shift lastitem">shift</li>
-        <li class="space lastitem">&nbsp;</li>
-    </ul>
-</div>
+        <div class="col-md-6 w3-padding-small">
+            <br>
+            <div class="w3-row w3-padding-small">
+                <div class="w3-half w3-card-2 w3-white">
+                    <header class="w3-container w3-white w3-text-green w3-border-bottom w3-light-grey">
+                        <h3>Always</h3>
+                    </header>
+                    <div class="w3-container w3-padding">
+                        <p>Change Your Passwords Regularly</p>
+                    </div>                    
+                </div>
+                <div class="w3-half w3-card-2 w3-white">
+                    <header class="w3-container w3-white w3-text-green w3-border-bottom w3-light-grey">
+                        <h3>Always</h3>
+                    </header>
+                    <div class="w3-container w3-padding">
+                        <p>Keep your computer free of malware</p>
+                    </div>                    
+                </div>
+            </div>
+            <div class="w3-row w3-padding-small">
+                <div class="w3-half w3-card-2 w3-white">
+                    <header class="w3-container w3-white w3-text-red w3-border-bottom w3-light-grey">
+                        <h3>Never</h3>
+                    </header>
+                    <div class="w3-container w3-padding">
+                        <p>respond to any communication seeking your passwords</p>
+                    </div>                    
+                </div>
+                <div class="w3-half w3-card-2 w3-white">
+                    <header class="w3-container w3-white w3-text-red w3-border-bottom w3-light-grey">
+                        <h3>Never</h3>
+                    </header>
+                    <div class="w3-container w3-padding">
+                        <p>reveal your passwords or card details to anyone</p>
+                    </div>                    
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>
 </asp:Content>

@@ -91,11 +91,98 @@
   	</div>
   </div>
 
-  <div id="2" class="w3-container taby">
+  <div id="2" class="w3-container taby" style="display: none">
+    <h2>Recent Transactions</h2>
+    <hr>
     
+  <asp:GridView ID="grid3" runat="server" AutoGenerateColumns="False" CellPadding="14" class="w3-table w3-padding"> 
+    <AlternatingRowStyle BackColor="White" />  
+     <columns>  
+         <asp:TemplateField HeaderText="User Name">  
+             <ItemTemplate>  
+                 <asp:Label ID="UserName" runat="server" Text='<%#Bind("UserName") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Account Number [yours]">  
+             <ItemTemplate>  
+                 <asp:Label ID="AccountNum1" runat="server" Text='<%#Bind("AccountNum1") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Dest Account Number">  
+             <ItemTemplate>  
+                 <asp:Label ID="AccountNum2" runat="server" Text='<%#Bind("AccountNum2") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Dest User Name">  
+             <ItemTemplate>  
+                 <asp:Label ID="TUserName" runat="server" Text='<%#Bind("TUserName") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Amount transferred">  
+             <ItemTemplate>  
+                 <asp:Label ID="Amount" runat="server" Text='<%#Bind("Amount") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+         <asp:TemplateField HeaderText="Remarks">  
+             <ItemTemplate>  
+                 <asp:Label ID="Remarks" runat="server" Text='<%#Bind("Remarks") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+         <asp:TemplateField HeaderText="Status">  
+             <ItemTemplate>  
+                 <asp:Label ID="Status" runat="server" Text='<%#Bind("Status") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+     </columns>  
+
+  </asp:GridView>
   </div>
 
-  <div id="3" class="w3-container taby">
+  <div id="3" class="w3-container taby" style="display: none">
+  <asp:Button ID="printButton" runat="server" Text="Print" OnClientClick="javascript:window.print();" />
+    <asp:GridView ID="grid2" runat="server" AutoGenerateColumns="False" CellPadding="14" class="w3-table w3-padding"> 
+    <AlternatingRowStyle BackColor="White" />  
+     <columns>  
+         <asp:TemplateField HeaderText="User Name">  
+             <ItemTemplate>  
+                 <asp:Label ID="UserName" runat="server" Text='<%#Bind("UserName") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Account Number [yours]">  
+             <ItemTemplate>  
+                 <asp:Label ID="AccountNum1" runat="server" Text='<%#Bind("AccountNum1") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Dest Account Number">  
+             <ItemTemplate>  
+                 <asp:Label ID="AccountNum2" runat="server" Text='<%#Bind("AccountNum2") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Dest User Name">  
+             <ItemTemplate>  
+                 <asp:Label ID="TUserName" runat="server" Text='<%#Bind("TUserName") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>  
+         <asp:TemplateField HeaderText="Amount transferred">  
+             <ItemTemplate>  
+                 <asp:Label ID="Amount" runat="server" Text='<%#Bind("Amount") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+         <asp:TemplateField HeaderText="Remarks">  
+             <ItemTemplate>  
+                 <asp:Label ID="Remarks" runat="server" Text='<%#Bind("Remarks") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+         <asp:TemplateField HeaderText="Status">  
+             <ItemTemplate>  
+                 <asp:Label ID="Status" runat="server" Text='<%#Bind("Status") %>'></asp:Label>  
+             </ItemTemplate>  
+         </asp:TemplateField>
+     </columns>  
+
+  </asp:GridView>
+  
+
   </div>
 
 

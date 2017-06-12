@@ -2,11 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	
-	<div class="well well-sm" style="margin-top: 4%">
-		<h2>Welcome <asp:label runat="server" ID="name"></asp:label> </h2>
-	</div>
-
-	<div class="container">
+	<div class="w3-container" style="margin-top: 10%">
     
   <asp:GridView ID="grid1" runat="server" AutoGenerateColumns="False" CellPadding="14" class="w3-table w3-padding"> 
   	<AlternatingRowStyle BackColor="White" />  
