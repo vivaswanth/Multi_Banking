@@ -26,10 +26,24 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder id="MainContent" runat="server">
+
+<header class="masthead w3-padding" style="height:15%;background-image: url(Assets/images/b7.jpg);">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-6 w3-text-white">
+      <h1>Multi Banking Transaction Systems<p class="lead">Bringing one common solution for all banking needs</p></h1>
+    </div>
+    <div class="col-sm-6">
+      <div class="pull-right hidden-sm">    
         
-        </asp:ContentPlaceHolder>
-        <div class="navbar navbar-fixed-top w3-card-4" style="background: rgba(0,0,128,0.9);color: #fff">
+      </div>
+    </div>
+  </div>
+  </div>
+</header>         
+   
+        <div id="nav">
+        <div class="navbar navbar-static-top w3-card-4" style="border:none;background: rgba(48, 48, 44,1);color: #fff;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,33 +51,81 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Multi Banking</a>
+                    <a class="navbar-brand" runat="server" href="#">MBTS</a>
                 </div>
                 <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li><a runat="server" href="ClientIndex.aspx">Home</a></li>
-                            <li><a runat="server" href="Dashboard.aspx">DashBoard</a></li>
+                            <li><a runat="server" class="w3-hover-blue" href="ClientIndex.aspx">Home</a></li>
+                            <li><a runat="server" class="w3-hover-blue" href="Dashboard.aspx">DashBoard</a></li>
                             <li class="dropdown">
-                              <a runat="server" class="dropdown-toggle" data-toggle="dropdown" href="#">Accounts
+                              <a runat="server" class="dropdown-toggle w3-hover-blue" data-toggle="dropdown" href="#">Accounts
                               <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                <li><a runat="server" href="Accounts.aspx">My Accounts</a></li>
-                                <li><a runat="server" href="ClientAttachAccounts.aspx">Attach Accounts</a></li>
+                                <li><a runat="server" class="w3-hover-blue" href="Accounts.aspx">My Accounts</a></li>
+                                <li><a runat="server" class="w3-hover-blue" href="ClientAttachAccounts.aspx">Attach Accounts</a></li>
                               </ul>
                             </li>
-                            <li><a runat="server" href="Transactions.aspx">Payments</a></li>
-                            <li><a runat="server" href="Transactions.aspx">Transactions</a></li>
-                            <li><a runat="server" href="Queries.aspx">Queries</a></li>
+                            <li><a runat="server" class="w3-hover-blue" href="Payments.aspx">Payments / Transfers</a></li>
+                            <li><a runat="server" class="w3-hover-blue" href="Bills.aspx">Bills</a></li>
+                            <li><a runat="server" class="w3-hover-blue" href="Queries.aspx">Queries</a></li>
 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a runat="server"><asp:label ID="user" runat="server"></asp:label></a></li>
-                            <li><a runat="server" href="Logout.aspx">Logout</a></li>
+                            <li><a href="Notifications.aspx" class="w3-hover-blue"><span class="fa fa-bell fa-lg"></span></a></li>
+                            <li class="dropdown">
+                              <a runat="server" class="dropdown-toggle w3-hover-blue" data-toggle="dropdown" href="#"><span class="fa fa-cog fa-lg"></span>
+                              <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a runat="server" class="w3-hover-blue" href="UpdateProfile.aspx">Update profile</a></li>
+                                <li><a runat="server" class="w3-hover-blue" href="ChangePassword.aspx">Change Password</a></li>
+                                <li><a runat="server" class="w3-hover-blue" href="TransactionPassword.aspx">Transaction Password</a></li>
+                              </ul>
+                            </li>
+                            <li class="dropdown">
+                              <a runat="server" class="dropdown-toggle w3-hover-blue" data-toggle="dropdown" href="#"><span class="fa fa-bars fa-lg"></span><asp:label ID="user1" runat="server"></asp:label>
+                              </a>
+                              <ul class="dropdown-menu w3-text-black w3-card-4 w3-padding" style="width: 300px">
+                              <div class="w3-row">
+                                <div class="w3-quarter" style="width: 60px;height: 60px;-webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px; border-color: 1px solid white;background: rgba(0,0,128,0.7);margin-top: 7%;color: #fff">
+                                  <h1 class="w3-center"><asp:label ID="Proname" runat="server"/></h1>
+                                </div>
+                                <div class="w3-rest w3-padding">
+                                <h3><asp:label ID="FirstName" runat="server"/><asp:label ID="LastName" runat="server"/></h3>
+                                <p>Local User - <a href="Dashboard.aspx">Profile</a></p>
+                              </div>
+                              <hr>
+                                <p class="w3-text-grey w3-center"><asp:label ID="Email" runat="server"/></p>
+                              <div class="w3-row w3-padding">
+                                <li><a runat="server" class="w3-btn w3-blue w3-padding w3-half" href="UpdateProfile.aspx"><span class="fa fa-cog"></span> Settings</a></li>
+                                <li><a runat="server" class="w3-btn w3-green w3-padding w3-half" href="Logout.aspx"><span class="fa fa-power-off"></span> Logout </a></li>
+                              </div>
+                              </ul>
+                            </li>
                         </ul>
                 </div>
             </div>
         </div>
+        </div>
     </div>
+
+        <asp:ContentPlaceHolder id="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+        <!-- Footer -->
+    <footer>
+    <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="w3-text-grey">Designed and Developed by VV</p>
+                    <p class="copyright text-muted small">Copyright &copy; Multi Banking Solutions pvt lmtd. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
     </form>
 </body>
 
@@ -82,6 +144,57 @@ function openTab(evt, tabName) {
   evt.currentTarget.firstElementChild.className += " w3-border-blue w3-text-blue";
 }
 
-</script>
+ 
 
+$(document).ready(function() {
+  $(window).scroll(function () {
+      //if you hard code, then use console
+      //.log to determine when you want the 
+      //nav bar to stick.  
+      console.log($(window).scrollTop())
+    if ($(window).scrollTop() > 110) {
+      $('#nav').addClass('navbar-fixed-top');
+      $('#nav').removeClass('navbar-static-top');
+    }
+    if ($(window).scrollTop() < 110) {
+      $('#nav').removeClass('navbar-fixed-top');
+      $('#nav').addClass('navbar-static-top');
+    }
+  });
+});
+
+
+</script>
+<script type="text/javascript">
+        window.history.forward(-1);
+    </script>
+
+    <script type="text/javascript">
+        var message = "Sorry, Right Click have been disabled.";
+        function click(e) {
+            if (document.all) {
+                if (event.button == 2 || event.button == 3) {
+                    delete window.alert;
+                    alert(message);
+                    return false;
+                }
+            }
+            else {
+                if (e.button == 2 || e.button == 3) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            }
+        }
+
+        if (document.all)
+            document.onmousedown = click;
+        else
+            document.onclick = click;
+
+        document.oncontextmenu = function () {
+            return false;
+        };
+    </script>
 </html>

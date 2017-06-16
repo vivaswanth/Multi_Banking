@@ -26,13 +26,16 @@ public partial class BankAdminRegistration : System.Web.UI.Page
     	Connections conn = new Connections();
     	try
         {
-            string str1 = "INSERT INTO BankAdminProfile([BAUserName], [BAName], [BAAadhaar], [BAEmail], [BAPassword], [BAMobileNum], [BAID], [Status]) VALUES('" + BAUserName.Text + "','" + BAName.Text + "','" + BAAadhaar.Text + "','" + BAEmail.Text + "','" + BAPassword.Text + "','" + BAMobileNum.Text + "','" + BAID.Text + "', 'Pending')";
-            string str2 = "INSERT INTO BankAdminBankDetails([BAID], [BABankName], [BABankBranch], [BABankIFSC], [BARole], [BAStatus]) VALUES('" + BAID.Text + "','" + BABankName.Text + "','" + BABankBranch.Text + "','" + BABankIFSC.Text + "','" + BARole.Text + "', 'Pending')";
+            string str1 = "INSERT INTO BankAdminProfile([BAFirstName],[BALastName],[BAUserName],[Gender],[DOB],[BAIDProof],[BAEmail],[BAAddressLine],[BACity],[BAState],[BAPinCode],[BAPassword], [BAMobileNum], [BAID], [Status]) VALUES('" + BAFirstName.Text + "','" + BALastName.Text + "','" + BAUserName.Text + "','" + Sex.Text + "','" + DOB.Text + "','" + BAIDProof.Text + "','" + BAEmail.Text + "','" + BAAddressLine.Text + "','" + BACity.Text + "','" + BAState.Text + "','" + BAPinCode.Text + "','" + Password.Text + "','" + BAMobileNum.Text + "','" + BAID.Text + "', 'Pending')";
+            string str2 = "INSERT INTO BankAdminBankDetails([BAID], [BAUserName], [BABankName], [BABankBranch], [BABankIFSC], [BARole], [BAStatus]) VALUES('" + BAID.Text + "','" + BAUserName.Text + "','" + BABankName.Text + "','" + BABankBranch.Text + "','" + BABankIFSC.Text + "','" + BARole.Text + "', 'Pending')";
+            string str3 = "INSERT INTO IDDetails(UserName, IDProof, IDNumber) VALUES('" + BAUserName.Text + "','" + BAIDProof.SelectedItem.Text + "','" + IDNumber.Text + "')";
             SqlCommand cmd1 = new SqlCommand(str1, con);
             SqlCommand cmd2 = new SqlCommand(str2, con);
+            SqlCommand cmd3 = new SqlCommand(str3, con);
             con.Open();
             cmd1.ExecuteNonQuery().ToString();
             cmd2.ExecuteNonQuery().ToString();
+            cmd3.ExecuteNonQuery().ToString();
             SendActivationEmail(BAUserName.Text, BAID.Text);
             result.Text = "successfully Submitted, Your Details are sent for verification, Please go through your mail";
         }

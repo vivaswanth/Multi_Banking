@@ -32,12 +32,11 @@ public partial class ClientLogin : System.Web.UI.Page
             Session["name"] = UserName.Text;
             Session["id"] = UserName.Text;
             Response.Redirect("~//Client//ClientIndex.aspx");
-            Session.RemoveAll();
         }
     }
 
-    public void Register(object sender, EventArgs e)
+    public void ForgotPassword(object sender, EventArgs e)
     {
-        Response.Redirect("Register.aspx");
+        Response.Redirect("ForgotPassword.aspx");
     }
 }

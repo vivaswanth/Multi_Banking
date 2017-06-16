@@ -24,25 +24,25 @@ public partial class Admin_ManagerDetails : System.Web.UI.Page
      	{
        		if(reader1.Read())
        		{          
-	         	BAUserName.Text = reader1.GetString(0);
-	         	BAName.Text = reader1.GetString(1);
-	         	BAAadhaar.Text = reader1.GetString(2);
-	         	BAEmail.Text = reader1.GetString(3);
-	         	BAMobileNum.Text = reader1.GetDecimal(5).ToString();
-	         	BAID.Text = reader1.GetString(6);
-	         	Status.Text = reader1.GetString(7);
+	         	BAFirstName.Text = reader1.GetString(0);
+                BALastName.Text = reader1.GetString(1);
+	         	BAUserName.Text = reader1.GetString(2);
+	         	BAEmail.Text = reader1.GetString(6);
+	         	BAMobileNum.Text = reader1.GetDecimal(12).ToString();
+	         	BAID.Text = reader1.GetString(13);
+	         	Status.Text = reader1.GetString(14);
        		}
      	}
      	using(SqlDataReader reader2 = cmd2.ExecuteReader())
      	{
        		if(reader2.Read())
        		{          
-	         	BAID2.Text = reader2.GetString(8);
-	         	BABankName.Text = reader2.GetString(9);
-	         	BABankBranch.Text = reader2.GetString(10);
-	         	BABankIFSC.Text = reader2.GetString(11);
-	         	BARole.Text = reader2.GetString(12);
-	   			BAStatus.Text = reader2.GetString(13);
+	         	BAID2.Text = reader2.GetString(15);
+	         	BABankName.Text = reader2.GetString(17);
+	         	BABankBranch.Text = reader2.GetString(18);
+	         	BABankIFSC.Text = reader2.GetString(19);
+	         	BARole.Text = reader2.GetString(20);
+	   			BAStatus.Text = reader2.GetString(21);
        		}
      	}
     }

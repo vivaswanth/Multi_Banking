@@ -22,14 +22,19 @@ public partial class Bank_Admin_BankAdminDashboard : System.Web.UI.Page
      	{
        		if(reader.Read())
        		{   
-       			BAUserName.Text = reader.GetString(0);       
-	         	BAName.Text = reader.GetString(1);
-	         	BAAadhaar.Text = reader.GetString(2);
-	         	BAEmail.Text = reader.GetString(3);
-	         	BAMobileNum.Text = reader.GetDecimal(5).ToString();
-	         	BAID.Text = reader.GetString(6);
-
-       		}
+                FirstName.Text = reader.GetString(0);
+                LastName.Text = reader.GetString(1);
+                UserName.Text = reader.GetString(2);
+                BAID.Text = reader.GetString(13);
+                DOB.Text = Convert.ToDateTime(reader["DOB"]).ToString("dd/MM/yyyy");
+                Sex.Text = reader.GetString(3);
+                Email.Text = reader.GetString(6);
+                Address.Text = reader.GetString(7);
+                City.Text = reader.GetString(8);
+                State.Text = reader.GetString(9);
+                PinCode.Text = reader.GetDecimal(10).ToString();
+                MobileNum.Text = reader.GetDecimal(12).ToString();
+            }
      	}   
     }
 

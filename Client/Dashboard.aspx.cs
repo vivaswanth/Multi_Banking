@@ -26,67 +26,31 @@ public partial class Client_Dashboard : System.Web.UI.Page
 	         	FirstName.Text = reader.GetString(0);
 	         	LastName.Text = reader.GetString(1);
 	         	UserName.Text = reader.GetString(2);
-	         	FatherName.Text = reader.GetString(3);
-	         	MobileNum.Text = reader.GetDecimal(4).ToString();
-	         	Email.Text = reader.GetString(5);
-	         	Aadhaar.Text = reader.GetString(6);
-	         	Address.Text = reader.GetString(8);
+                Sex.Text = reader.GetString(3);
+                DOB.Text = Convert.ToDateTime(reader["DOB"]).ToString("dd/MM/yyyy");
+	         	FatherName.Text = reader.GetString(5);
+	         	MobileNum.Text = reader.GetDecimal(6).ToString();
+	         	Email.Text = reader.GetString(7);
+	         	Address.Text = reader.GetString(10);
+                City.Text = reader.GetString(11);
+                State.Text = reader.GetString(12);
+                PinCode.Text = reader.GetDecimal(13).ToString();
 
        		}
      	}   
     }
 
-    protected void UpdateUser_Click_mobilenum(object sender, EventArgs e)
-    {
 
-		SqlConnection con = new SqlConnection("server=DESKTOP-30COJRN; Initial catalog=multibanking; Integrated Security=true;");
-    	try
+    
+    protected void Upload(object sender, EventArgs e)
+    {
+        if (FileUpload1.HasFile)
         {
-        	con.Open();
-            string str = "update ClientProfile set [MobileNum]='" +MobileNum2.Text+ "' where UserName='" +Convert.ToString(Session["name"])+ "'";
-            SqlCommand cmd = new SqlCommand(str, con);
-            cmd.ExecuteNonQuery();
-            result1.Text = "successfully updated your info";
-        }
-        catch(Exception ee)
-        {
-            result1.Text = Session["name"].ToString();
+            string fileName = Session["name"].ToString();
+            FileUpload1.PostedFile.SaveAs(Server.MapPath("Assets/images/") + fileName);
         }
     }
 
-    protected void UpdateUser_Click_Aadhaar(object sender, EventArgs e)
-    {
+   
 
-    	SqlConnection con = new SqlConnection("server=DESKTOP-30COJRN; Initial catalog=multibanking; Integrated Security=true;");
-    	try
-        {
-            string str = "update ClientProfile set Aadhaar='" +Aadhaar2.Text+ "' where UserName='" +Session["name"].ToString()+ "' ";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(str, con);
-            cmd.ExecuteNonQuery().ToString();  
-            result2.Text = "successfully updated your info";
-        }
-        catch(Exception eee)
-        {
-            result2.Text = "Failed";
-        }
-    }
-
-    protected void UpdateUser_Click_Password(object sender, EventArgs e)
-    {
-
-    	SqlConnection con = new SqlConnection("server=DESKTOP-30COJRN; Initial catalog=multibanking; Integrated Security=true;");
-    	try
-        {
-            string str = "update ClientProfile set Password='" +Password2.Text+ "' where UserName='" +Session["name"].ToString()+ "' ";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(str, con);
-            cmd.ExecuteNonQuery().ToString();  
-            result3.Text = "successfully updated your Password";
-        }
-        catch(Exception eee)
-        {
-            result3.Text = "Failed";
-        }
-    }
 }

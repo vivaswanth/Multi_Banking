@@ -6,8 +6,8 @@
 		<table class="w3-table w3-padding">
 			<tr>
 				<th>Bank Admin User Name</th>
-				<th>Bank Admin Full Name</th>
-				<th>Bank Admin Aadhaar ID</th>
+				<th>Bank Admin First Name</th>
+				<th>Bank Admin Last Name</th>
 				<th>Bank Admin Email</th>
 				<th>Bank Admin Mobile Number</th>
 				<th>Bank Admin BAID</th>
@@ -15,8 +15,8 @@
 			</tr>
 			<tr>
 				<td><asp:label runat="server" ID="BAUserName"></asp:label></td>
-				<td><asp:label runat="server" ID="BAName"></asp:label></td>
-				<td><asp:label runat="server" ID="BAAadhaar"></asp:label></td>
+				<td><asp:label runat="server" ID="BAFirstName"></asp:label></td>
+				<td><asp:label runat="server" ID="BALastName"></asp:label></td>
 				<td><asp:label runat="server" ID="BAEmail"></asp:label></td>
 				<td><asp:label runat="server" ID="BAMobileNum"></asp:label></td>
 				<td><asp:label runat="server" ID="BAID"></asp:label></td>

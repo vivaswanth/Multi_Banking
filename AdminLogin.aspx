@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="AdminLogin" Language="C#" MasterPageFile="~/MasterAdminDefault.Master" AutoEventWireup="true" CodeFile="AdminLogin.aspx.cs" Inherits="AdminLogin" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    
+<div class="w3-border" style="background: url(Assets/images/b7.jpg);">
     <div class="container well" style="margin-top: 5%">
     
             <h2>Page <%: Title %> Here...</h2>
@@ -63,5 +63,5 @@
                 </div>
             </div>
         </div>
-
+</div>
 </asp:Content>

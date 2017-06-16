@@ -14,14 +14,14 @@
          </asp:TemplateField>  
          <asp:TemplateField HeaderText="Bank Admin Name">  
              <ItemTemplate>  
-                 <asp:Label ID="BAName" runat="server" Text='<%#Bind("BAName") %>'></asp:Label>  
+                 <asp:Label ID="BAFirstName" runat="server" Text='<%#Bind("BAFirstName") %>'></asp:Label>  
              </ItemTemplate>  
          </asp:TemplateField>  
-         <asp:TemplateField HeaderText="Aadhaar ID">  
+         <asp:TemplateField HeaderText="Bank Admin Name">  
              <ItemTemplate>  
-                 <asp:Label ID="BAAadhaar" runat="server" Text='<%#Bind("BAAadhaar") %>'></asp:Label>  
+                 <asp:Label ID="BALastName" runat="server" Text='<%#Bind("BALastName") %>'></asp:Label>  
              </ItemTemplate>  
-         </asp:TemplateField>  
+         </asp:TemplateField>
          <asp:TemplateField HeaderText="Email ID">  
              <ItemTemplate>  
                  <asp:Label ID="BAEmail" runat="server" Text='<%#Bind("BAEmail") %>'></asp:Label>  

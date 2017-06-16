@@ -60,7 +60,7 @@
          </asp:TemplateField>
          <asp:TemplateField HeaderText="Aadhaar ID">  
              <ItemTemplate>  
-                 <asp:Label ID="Aadhaar" runat="server" Text='<%#Bind("Aadhaar") %>'></asp:Label>  
+                 <asp:Label ID="Aadhaar" runat="server" Text='<%#Bind("IDProof") %>'></asp:Label>  
              </ItemTemplate>  
          </asp:TemplateField>
          <asp:TemplateField HeaderText="View Details">  

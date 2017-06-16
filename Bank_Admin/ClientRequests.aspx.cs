@@ -22,12 +22,12 @@ public partial class Bank_Admin_ClientRequests : System.Web.UI.Page
     	if(Session["name"] != null)
     	{
     		con.Open();
-    		SqlCommand cmd = new SqlCommand("select * from BankAdminProfile a INNER JOIN BankAdminBankDetails b on a.BAUserName = '"+Session["name"]+"' and a.BAID = b.BAID", con);
+    		SqlCommand cmd = new SqlCommand("select BABankBranch from BankAdminBankDetails where BAUserName = '"+Session["name"]+"'", con);
             using(SqlDataReader reader1 = cmd.ExecuteReader())
      		{
        			if(reader1.Read())
        			{          
-	         		Tempo = reader1.GetString(10);
+	         		Tempo = reader1.GetString(0);
 	         	}
 	        }            
             DisplayRecord(Tempo);

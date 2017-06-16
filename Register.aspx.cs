@@ -24,14 +24,17 @@ public partial class Register : System.Web.UI.Page
     protected void CreateUser_Click(object sender, EventArgs e)
     {
 
-    	Connections conn = new Connections();
-    	try
+        Connections conn = new Connections();
+        try
         {
-            string str = "INSERT INTO ClientProfile([FirstName], [LastName], [UserName], [FatherName], [MobileNum], [Email], [Aadhaar], [Password], [Address]) VALUES('" + FirstName.Text + "','" + LastName.Text + "','" + UserName.Text + "','" + FatherName.Text + "','" + MobileNum.Text + "','" + Email.Text + "','" + Aadhaar.Text + "','" + Password.Text + "','" + Address.Text + "')";
+            string str = "INSERT INTO ClientProfile([FirstName], [LastName], [UserName], [Gender], [DOB], [FatherName], [MobileNum], [Email], [IDProof], [Password], [AddressLine], [City], [State], [PinCode], [TPassword]) VALUES('" + FirstName.Text + "','" + LastName.Text + "','" + UserName.Text + "','" +Sex.SelectedItem.Text + "', '"+ DOB.Text+"','"+FatherName.Text+"','" + MobileNum.Text + "','" + Email.Text + "','" + IDProof.SelectedItem.Text + "','" + Password.Text + "','" + AddressLine.Text + "','"+ City.Text+"','"+ State.SelectedItem.Text+"','"+ PinCode.Text+"','"+TPassword.Text+"')";
             SqlCommand cmd = new SqlCommand(str, con);
             con.Open();
             cmd.ExecuteNonQuery().ToString();  
             SendActivationEmail(UserName.Text);
+            string str1 = "INSERT INTO IDDetails([UserName],[IDProof],[IDNumber]) VALUES('"+UserName.Text+"','"+IDProof.SelectedItem.Text+"','"+IDNumber.Text+"')";
+            SqlCommand cmd1 = new SqlCommand(str1, con);
+            cmd1.ExecuteNonQuery().ToString();  
             result.Text = "successfully inserted";
         }
         catch(Exception ee)
@@ -71,4 +74,7 @@ public partial class Register : System.Web.UI.Page
         }
     }
 
+    
+
+    
 }

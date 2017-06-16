@@ -33,14 +33,10 @@ public partial class Client_Accounts : System.Web.UI.Page
         }
     }
 
-    protected void Search(object sender, EventArgs e)
-    {
-        this.DisplayRecord();
-    }
 
     public DataTable DisplayRecord()  
     {  
-        SqlDataAdapter Adp1 = new SqlDataAdapter("Select * from ClientBankDetails where UserName='%"+Session["name"]+"%' or AccountNum like '%"+txtSearch.Text+"%'", con);  
+        SqlDataAdapter Adp1 = new SqlDataAdapter("Select * from ClientBankDetails where UserName='"+Session["name"]+"'", con);  
         DataTable Dt1 = new DataTable();  
         Adp1.Fill(Dt1);
         grid1.DataSource = Dt1;  

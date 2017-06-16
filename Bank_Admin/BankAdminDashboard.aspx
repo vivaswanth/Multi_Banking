@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	  
-  <div class="w3-row w3-padding w3-white w3-card-2 navbar-fixed-top" style="margin-top: 4%">
+  <div class="w3-row w3-padding w3-white w3-card-2 navbar-static-top" style="margin-top: -2%">
   <div class="col-md-10">
     <div class="w3-row">
     <a href="javascript:void(0)" onclick="openTab(event, '1');">
@@ -17,53 +17,67 @@
   </div>
 
   </div>
-  <div class="col-md-2 w3-right">
-      <a href="BANotifications.aspx"><span class="fa fa-bell" style="font-size:24px; padding-right: 20px ; margin-top: 5%"></span></a>
-      <a href="BASettings.aspx"><span class="fa fa-cog" style="font-size:24px; margin-top: 5%"></span></a>
-  </div>
 </div>
 
-	<div class="w3-container" style="margin-top: 10%">
+	<div class="w3-container">
 
   <div id="1" class="w3-container taby">
     <h2>Your Profile Information & Details Here...</h2><br>
     
     <div class="container">
-    <table class="w3-table w3-border w3-striped w3-white w3-bordered">
-    <tr>
-      <th>Category</th>
-      <th>Value</th>
-    </tr>
-    <tr>
-      <td>Your Name </td>
-      <td><asp:label runat="server" ID="BAName"></asp:label></td>
-    </tr>
-    <tr>
-      <td>User Name </td>
-      <td><asp:label runat="server" ID="BAUserName"></asp:label></td>
-    </tr>
-    <tr>
-      <td>Mobile Number </td>
-      <td><asp:label runat="server" ID="BAMobileNum"></asp:label></td>
-    </tr>
-    <tr>
-      <td>Your Bank ID </td>
-      <td><asp:label runat="server" ID="BAID"></asp:label></td>
-    </tr>
-    <tr>
-      <td>Email ID </td>
-      <td><asp:label runat="server" ID="BAEmail"></asp:label></td>
-    </tr>
-    <tr>
-      <td>Aadhaar </td>
-      <td><asp:label runat="server" ID="BAAadhaar"></asp:label></td>
-    </tr>
-  </table>
-  </div>
+      <legend>Profile Information</legend>
+      <table class="w3-table w3-border w3-striped w3-white table-bordered">
+        <tr>
+          <th class="col-md-3">First Name</th>
+          <th class="col-md-3">Last Name</th>
+          <th class="col-md-3">User Name</th>
+          <th class="col-md-3">Your Bank ID</th>
+        </tr>
+        <tr>    
+          <td class="col-md-3"><asp:label runat="server" ID="FirstName"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="LastName"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="UserName"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="BAID"></asp:label></td>
+        </tr>
+    </table>
+    <br>
+    <legend>Personal Information</legend>
+    <table class="w3-table w3-border w3-striped w3-white table-bordered">
+        <tr>
+          <th class="col-md-3">Date of Birth</th>
+          <th class="col-md-3">Gender</th>
+          <th class="col-md-3">Mobile Number</th>
+          <th class="col-md-3">Email ID</th>
+        </tr>
+        <tr>    
+          <td class="col-md-3"><asp:label runat="server" ID="DOB"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="Sex"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="MobileNum"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="Email"></asp:label></td>
+        </tr>
+    </table>
+    <br>
+    <legend>Address Information</legend>
+    <table class="w3-table w3-border w3-striped w3-white table-bordered">
+        <tr>
+          <th class="col-md-3">Address</th>
+          <th class="col-md-3">City</th>
+          <th class="col-md-3">State</th>
+          <th class="col-md-3">Pin Code</th>
+        </tr>
+        <tr>    
+          <td class="col-md-3"><asp:label runat="server" ID="Address"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="City"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="State"></asp:label></td>
+          <td class="col-md-3"><asp:label runat="server" ID="PinCode"></asp:label></td>
+        </tr>
+    </table>
 
   </div>
+</div>
+</div>
 
-  <div id="2" class="w3-container taby" style="display:none">
+  <div id="2" class="w3-container taby" style="display:none;">
     <h2>Edit / Add Information</h2>
     <p>You Change / update your mobile number</p>
 

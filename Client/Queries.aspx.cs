@@ -31,6 +31,7 @@ public partial class Client_Queries : System.Web.UI.Page
 	                    Destination.Items.Add(new ListItem("Admin", "0"));
 	                }
 	            }
+                DisplayRecord();
     		}
     	}
     	else
@@ -50,6 +51,16 @@ public partial class Client_Queries : System.Web.UI.Page
     	con.Open();
  		SqlCommand cmd = new SqlCommand("INSERT into Query([UserName],[Destination],[Query],[Message]) VALUES('"+Session["name"]+"','"+Destination.SelectedItem.Text+"','"+Query.Text+"','"+Message.Text+"')", con);
  		cmd.ExecuteNonQuery().ToString();
+    }
+
+    public DataTable DisplayRecord()  
+    {  
+        SqlDataAdapter Adp = new SqlDataAdapter("select * from Query where UserName = '"+Session["name"]+"' or Destination='"+Session["name"]+"'", con);  
+        DataTable Dt = new DataTable();  
+        Adp.Fill(Dt);
+        grid.DataSource = Dt;  
+        grid.DataBind();  
+        return Dt;  
     }
 
 }

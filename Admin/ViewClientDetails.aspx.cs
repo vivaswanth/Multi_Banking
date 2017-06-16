@@ -26,11 +26,11 @@ public partial class Admin_ViewClientDetails : System.Web.UI.Page
 	         	FirstName.Text = reader1.GetString(0);
 	         	LastName.Text = reader1.GetString(1);
 	         	UserName.Text = reader1.GetString(2);
-	         	FatherName.Text = reader1.GetString(3);
-	         	MobileNum.Text = reader1.GetDecimal(4).ToString();
-	         	Email.Text = reader1.GetString(5);
-	         	Aadhaar.Text = reader1.GetString(6);
-	         	Address.Text = reader1.GetString(8);
+	         	FatherName.Text = reader1.GetString(5);
+	         	MobileNum.Text = reader1.GetDecimal(6).ToString();
+	         	Email.Text = reader1.GetString(7);
+	         	Aadhaar.Text = reader1.GetString(8);
+	         	Address.Text = reader1.GetString(10);
        		}
      	}
     }

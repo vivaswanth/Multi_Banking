@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows;
+using System.Windows.Forms;
 using System.Web.Security;
 
 public partial class Client_Logout : System.Web.UI.Page
@@ -46,6 +47,8 @@ public partial class Client_Logout : System.Web.UI.Page
         }
         if(Session["name"] == null)
             Response.Redirect("~//Default.aspx");
+        else
+            MessageBox.Show("Session enclosed");
     }
 
 }

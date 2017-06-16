@@ -10,7 +10,7 @@ using System.Windows;
 using System.Web.Security;
 public partial class Bank_Admin_BankAdminQueries : System.Web.UI.Page
 {
-    SqlConnection con = new SqlConnection("Server=DESKTOP-788NB54\\MSSQLSERVER01; Initial Catalog=MultiBanking; Integrated Security=true;");
+    SqlConnection con = new SqlConnection("server=DESKTOP-30COJRN; Initial catalog=multibanking; Integrated Security=true;");
 
     protected void Page_Load(object sender, EventArgs e)
     {

@@ -30,23 +30,20 @@
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
                         </div>
                     </div>
-                    <div class="w3-row col-md-10">
-                    <div class="form-group w3-half" style="margin-right: 30px">
+                    <div class="form-group">
+                        <div class="col-md-10">
                             <asp:Button runat="server" OnClick="login" Text="LOG IN" CssClass="btn btn-success btn-block" />
-                    </div>
-                    <div class="form-group w3-half">                        
-                            <a href="Register.aspx" class="btn w3-blue btn-block"><i class="fa fa-github fa-fw"></i> <span class="network-name">Register Here</span></a>
-                    </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <div class="checkbox">
                                 <asp:CheckBox runat="server" ID="RememberMe" />
                                 <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="RememberMe"><a href="ForgotPassword.aspx">Forgot Password?</a></asp:Label>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
                 <asp:label runat="server" ID="result"></asp:label>
                 <br><br>

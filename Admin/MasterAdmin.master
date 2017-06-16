@@ -70,5 +70,32 @@ function openTab(evt, tabName) {
   evt.currentTarget.firstElementChild.className += " w3-border-blue w3-text-blue";
 }
 </script>
+<script type="text/javascript">
+        var message = "Sorry, Right Click have been disabled.";
+        function click(e) {
+            if (document.all) {
+                if (event.button == 2 || event.button == 3) {
+                    delete window.alert;
+                    alert(message);
+                    return false;
+                }
+            }
+            else {
+                if (e.button == 2 || e.button == 3) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            }
+        }
 
+        if (document.all)
+            document.onmousedown = click;
+        else
+            document.onclick = click;
+
+        document.oncontextmenu = function () {
+            return false;
+        };
+    </script>
 </html>

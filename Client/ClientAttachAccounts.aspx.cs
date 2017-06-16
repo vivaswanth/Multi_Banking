@@ -29,14 +29,9 @@ public partial class Client_ClientAttachAccounts : System.Web.UI.Page
     	}
     }
 
-    protected void Search(object sender, EventArgs e)
-    {
-        this.DisplayRecord();
-    }
-
     public DataTable DisplayRecord()  
     {  
-        SqlDataAdapter Adp1 = new SqlDataAdapter("Select * from ClientAttachedAccounts where UserName='%"+Session["name"]+"%' or AttachedUserName like '%"+txtSearch.Text+"%'", con);  
+        SqlDataAdapter Adp1 = new SqlDataAdapter("Select * from ClientAttachedAccounts where UserName='"+Session["name"]+"'", con);  
         DataTable Dt1 = new DataTable();  
         Adp1.Fill(Dt1);
         grid1.DataSource = Dt1;  
