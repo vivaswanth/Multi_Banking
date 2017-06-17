@@ -18,10 +18,6 @@
   </div>
 
   </div>
-  <div class="col-md-2 w3-right">
-      <a href="Notifications.aspx"><span class="fa fa-bell" style="font-size:24px; padding-right: 20px ; margin-top: 5%"></span></a>
-      <a href="Settings.aspx"><span class="fa fa-cog" style="font-size:24px; margin-top: 5%"></span></a>
-  </div>
 </div>
 
   <div id="1" class="w3-container taby" style="margin-top: 10%">

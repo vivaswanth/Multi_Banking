@@ -30,6 +30,15 @@ public partial class Client_MasterClient : System.Web.UI.MasterPage
             }
         }
 
+        SqlCommand cmd1 = new SqlCommand("select count(Destination) from Query where Destination = '"+ Session["name"]+"'", con);
+        using(SqlDataReader reader1 = cmd1.ExecuteReader())
+        {
+            if(reader1.Read())
+            {          
+                notify.Text = reader1.GetValue(0).ToString();
+            }
+        }
+
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
         Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
         Response.Cache.SetNoStore();

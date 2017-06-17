@@ -16,7 +16,25 @@ public partial class Admin_MasterAdmin : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
     	con.Open();
-    	user.Text = "Welcome " + Session["name"].ToString() + "!";
+    	user1.Text = "  Welcome " + Session["name"].ToString() + "!";
+        SqlCommand cmd = new SqlCommand("select * from PageAdminProfile where PAUserName = '"+ Session["name"]+"'", con);
+        using(SqlDataReader reader = cmd.ExecuteReader())
+        {
+            if(reader.Read())
+            {          
+                FirstName.Text = reader.GetString(1);
+                Proname.Text = reader.GetString(1).Substring(0,1);
+                Email.Text = reader.GetString(2).Trim();
+            }
+        }
+        SqlCommand cmd1 = new SqlCommand("select count(Destination) from Query where Destination = 'Admin'", con);
+        using(SqlDataReader reader1 = cmd1.ExecuteReader())
+        {
+            if(reader1.Read())
+            {          
+                notify.Text = reader1.GetValue(0).ToString();
+            }
+        }
     }
 
     public void logout(object sender, EventArgs e)

@@ -18,7 +18,7 @@ public partial class Client_Accounts : System.Web.UI.Page
         {
             con.Open();
             DisplayRecord();
-            SqlCommand cmd = new SqlCommand("select * from BankAdminBankDetails where BAStatus = 'Approved'", con);
+            SqlCommand cmd = new SqlCommand("select distinct BABankName from BankAdminBankDetails where BAStatus = 'Approved'", con);
             using (SqlDataReader dr = cmd.ExecuteReader())
             {
                 if(dr.HasRows)
@@ -59,7 +59,7 @@ public partial class Client_Accounts : System.Web.UI.Page
         BankIFSC.Items.Add(new ListItem("--Select IFSC Code--", ""));   
      
         BankBranch.AppendDataBoundItems = true;
-        SqlCommand cmd = new SqlCommand("select * from BankAdminBankDetails where BAStatus = 'Approved'", con);   
+        SqlCommand cmd = new SqlCommand("select * from BankAdminBankDetails where BAStatus = 'Approved' and BABankName='"+BankName.SelectedItem.Text+"'", con);   
         try
         {
             con.Open();
@@ -88,7 +88,7 @@ public partial class Client_Accounts : System.Web.UI.Page
         BankIFSC.Items.Clear();
         BankIFSC.Items.Add(new ListItem("--Select Branch and City--", ""));
         BankIFSC.AppendDataBoundItems = true;
-        SqlCommand cmd = new SqlCommand("select * from BankAdminBankDetails where BAStatus = 'Approved'", con);   
+        SqlCommand cmd = new SqlCommand("select * from BankAdminBankDetails where BAStatus = 'Approved' and BABankName='"+BankName.SelectedItem.Text+"' and BABankBranch='"+BankBranch.SelectedItem.Text+"'", con);   
         try
         {
             con.Open();

@@ -61,7 +61,7 @@
 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="Notifications.aspx" class="w3-hover-blue"><span class="fa fa-bell fa-lg"></span></a></li>
+                            <li><a href="Notifications.aspx" class="w3-hover-blue"><span class="fa fa-bell fa-lg"><span class="badge"><asp:label ID="notify" runat="server"></asp:label></span></span></a></li>
                             <li class="dropdown">
                               <a runat="server" class="dropdown-toggle w3-hover-blue" data-toggle="dropdown" href="#"><span class="fa fa-bars fa-lg"></span><asp:label ID="user" runat="server"></asp:label>
                               </a>
@@ -92,6 +92,19 @@
         </asp:ContentPlaceHolder>
         
     </div>
+
+    <footer>
+    <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="w3-text-grey">Designed and Developed by VV</p>
+                    <p class="copyright text-muted small">Copyright &copy; Multi Banking Solutions pvt lmtd. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     </form>
 </body>
 

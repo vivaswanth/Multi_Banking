@@ -2,8 +2,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	
-	<div class="w3-container" style="margin-top: 10%">
-    
+	<div class="w3-container" style="margin-top: 5%">
+    <h2>Add Managers</h2>
+    <p>please verify the manager details with the one in your server and confirm.</p>
   <asp:GridView ID="grid1" runat="server" AutoGenerateColumns="False" CellPadding="14" class="w3-table w3-padding"> 
   	<AlternatingRowStyle BackColor="White" />  
      <columns>  

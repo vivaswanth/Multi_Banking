@@ -166,7 +166,7 @@
 
   <div id="3" class="w3-container taby" style="display:none">
     <h2>Manage Accounts</h2>
-    <p>You didnt have any transactions.</p>
+    <p>If you wish to change / delete any of your accounts</p>
   </div>
 
 </div>

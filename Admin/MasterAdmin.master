@@ -13,7 +13,10 @@
     <link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/w3.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="Assets/Scripts/jquery.min.js"></script>
     <script src="Assets/js/bootstrap.js"></script>
     <script src="Assets/js/bootstrap.min.js"></script>
@@ -44,13 +47,42 @@
 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a runat="server"><asp:label ID="user" runat="server"></asp:label></a></li>
-                            <li><a runat="server" href="AdminLogout.aspx">Logout</a></li>
+                            <li><a href="AdminNotifications.aspx" class="w3-hover-blue"><span class="fa fa-bell fa-lg"><span class="badge"><asp:label ID="notify" runat="server"></asp:label></span></span></a></li>
+                            <li class="dropdown">
+                              <a runat="server" class="dropdown-toggle w3-hover-blue" data-toggle="dropdown" href="#"><span class="fa fa-bars fa-lg"></span><asp:label ID="user1" runat="server"></asp:label>
+                              </a>
+                              <ul class="dropdown-menu w3-text-black w3-card-4 w3-padding" style="width: 300px">
+                              <div class="w3-row">
+                                <div class="w3-quarter" style="width: 60px;height: 60px;-webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px; border-color: 1px solid white;background: rgba(0,0,128,0.7);margin-top: 7%;color: #fff">
+                                  <h1 class="w3-center"><asp:label ID="Proname" runat="server"/></h1>
+                                </div>
+                                <div class="w3-rest w3-padding">
+                                <h3><asp:label ID="FirstName" runat="server"/></h3>
+                                <p>Administrator - <a href="Dashboard.aspx">Profile</a></p>
+                              </div>
+                              <hr>
+                                <p class="w3-text-grey w3-center"><asp:label ID="Email" runat="server"/></p>
+                              <div class="w3-row w3-padding">
+                                <li><a runat="server" class="w3-btn w3-green w3-padding btn-block" href="AdminLogout.aspx"><span class="fa fa-power-off"></span> Logout </a></li>
+                              </div>
+                              </ul>
+                            </li>
                         </ul>
                 </div>
             </div>
         </div>
     </div>
+        <footer>
+    <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="w3-text-grey">Designed and Developed by VV</p>
+                    <p class="copyright text-muted small">Copyright &copy; Multi Banking Solutions pvt lmtd. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     </form>
 </body>
